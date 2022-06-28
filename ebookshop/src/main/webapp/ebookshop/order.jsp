@@ -23,6 +23,7 @@ request.setCharacterEncoding("utf-8");
 		책 제목: <input type="text" name="title"><br> <input
 			type="submit" value="검색">
 	</form>
+	<a href="../board/list.jsp">게시글 보기로 돌아가기</a>
 	<%
 	String title = request.getParameter("title");
 	if (title != null) {
