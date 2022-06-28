@@ -7,7 +7,10 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
+<% 
+	request.setCharacterEncoding("utf-8"); 
+	int level = (Integer)session.getAttribute("level");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -58,7 +61,15 @@
 			}
 		%>
 	</table>
+	<%if(level >= 3) { %>
 	<a href="write.jsp">게시글 쓰기</a>
+	<% } else { %>
+	 <h3>게시글 쓰기 권한 없음</h3>
+	 <% } %>
+	<a href="../ebookshop/order.jsp">책 사러 가기</a>
+	<form action="logout.jsp" method="post">
+		<input type="submit" value="로그아웃">
+	</form>
 	<%
 		if(stmt != null) {
 			stmt.close();
