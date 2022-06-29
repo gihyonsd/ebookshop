@@ -6,6 +6,7 @@
 	String id = request.getParameter("id");
 	String pass = request.getParameter("pass");
 	String name = request.getParameter("name");
+	String email = request.getParameter("email");
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
@@ -16,12 +17,13 @@
 		Class.forName(driver);
 		conn = DriverManager.getConnection(url,"java","java");
 		
-		String sql = "INSERT INTO user VALUES(?,?,?,?)";
+		String sql = "INSERT INTO user VALUES(?,?,?,?,?)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, id);
 		pstmt.setString(2, pass);
 		pstmt.setString(3, name);
-		pstmt.setInt(4, 1);
+		pstmt.setString(4, email);
+		pstmt.setInt(5, 1);
 		pstmt.executeUpdate();
 		out.println("<script>alert('회원가입이 완료되었습니다!'); location.href='login.jsp'; </script>");
 	} catch(Exception e) {

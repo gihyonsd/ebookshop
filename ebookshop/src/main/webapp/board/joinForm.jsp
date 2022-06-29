@@ -48,6 +48,10 @@
 				<td><input type = "text" name = "name" id = "name" required/></td>
 			</tr>
 			<tr>
+				<td><label for = "email">이메일 주소 : </label></td>
+				<td><input type = "text" name = "email" id = "email" /></td>
+			</tr>
+			<tr>
 				<td colspan = "2">
 					<input type="submit" value="회원가입">&nbsp;&nbsp;
 					<input type="reset" value="다시작성">

@@ -34,7 +34,7 @@
 			<th>저자</th>
 			<th>제목</th>
 			<th>가격</th>
-			<th>수량</th>
+			<th>남아있는 수량</th>
 			<%
 			for (int i = 0; i < ids.length; ++i) {
 				sqlStr = "UPDATE books SET qty = qty - 1 WHERE id = ?";

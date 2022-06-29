@@ -12,9 +12,9 @@
 </head>
 <body>
 	<%
-		String email, subject, memo, time, id;
+		String subject, memo, time, id;
 		String name = (String)session.getAttribute("name");
-		email = request.getParameter("email");
+		String email = (String)session.getAttribute("email");
 		subject = request.getParameter("subject");
 		memo = request.getParameter("memo");
 		id = request.getParameter("id");
@@ -31,7 +31,7 @@
 			out.println("데이터 베이스 접속 문제");
 			e.printStackTrace();
 		}
-		sql = "INSERT INTO message values(?,?,now(),?,?,?)";
+		sql = "INSERT INTO message values(?,?,date_format(now(), '%Y-%m-%d'),?,?,?)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, subject);
 		pstmt.setString(2, name);

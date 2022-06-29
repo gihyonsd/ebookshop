@@ -21,11 +21,13 @@
 	rs = pstmt.executeQuery();
 	while(rs.next()) {
 		String name = rs.getString(3); 
-		int level = rs.getInt(4);
+		int level = rs.getInt(5);
+		String email = rs.getString(4);
 		if(rs.getString(1).equals(id) && rs.getString(2).equals(pass)) {
 			session.setAttribute("id", id);
 			session.setAttribute("name", name);
 			session.setAttribute("level", level);
+			session.setAttribute("email", email);
 			response.sendRedirect("index.jsp");
 		}
 	}
