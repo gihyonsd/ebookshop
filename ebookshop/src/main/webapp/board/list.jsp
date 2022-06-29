@@ -59,6 +59,11 @@
 		<%
 				}
 			}
+			if(!rs.next()) {
+				sql = "ALTER TABLE message AUTO_INCREMENT=1";
+				rs = stmt.executeQuery(sql);
+			}
+			
 		%>
 	</table>
 	<%if(level >= 3) { %>

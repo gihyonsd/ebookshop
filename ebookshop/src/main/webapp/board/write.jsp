@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
+<% 
+	request.setCharacterEncoding("utf-8"); 
+	String name = (String)session.getAttribute("name");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +16,15 @@
 		<table border="2">
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="subject" size="60"></td>
+				<td><input type="text" name="subject" id="title" size="60"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="name" size="60"></td>
+				<td><input type="text" name="name" id="writer" value="<%=name %>" size="60" disabled></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea name="memo" cols="53" rows="5"></textarea></td>
+				<td><textarea name="memo" cols="53" rows="5" id="content"></textarea></td>
 			</tr>
 			<tr>
 			</tr>

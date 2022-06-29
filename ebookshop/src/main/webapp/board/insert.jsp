@@ -12,8 +12,8 @@
 </head>
 <body>
 	<%
-		String name, email, subject, memo, time, id;
-		name = request.getParameter("name");
+		String email, subject, memo, time, id;
+		String name = (String)session.getAttribute("name");
 		email = request.getParameter("email");
 		subject = request.getParameter("subject");
 		memo = request.getParameter("memo");
