@@ -43,13 +43,16 @@
 			stmt = conn.createStatement();
 			String sql = "SELECT * FROM message ORDER BY id ASC";
 			ResultSet rs = stmt.executeQuery(sql);
-			
+			sql = "SELECT @ROWNUM:=@ROWNUM+1 AS ROWNUM FROM message, (SELECT @ROWNUM:=0) R";
+			ResultSet result = stmt.executeQuery(sql);
+
 			if(rs != null) {
-				while(rs.next()) {
+				while(rs.next() && result.next()) {
 					int id = Integer.parseInt(rs.getString("id"));
+					int re = Integer.parseInt(result.getString("ROWNUM"));
 		%>
 		<tr>
-			<td><%=id %></td>
+			<td><%=re %></td>
 			<td><a href=display.jsp?id=<%=id %>>
 				<%=rs.getString("subject") %></a></td>
 			<td><%=rs.getString("name") %></td>
