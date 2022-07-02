@@ -10,6 +10,40 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 입력</title>
+<style>
+body {
+	background-color: lightgray;
+	color: #D2D1D5;
+	margin: 0;
+}
+
+table {
+	margin: 60px auto;
+	width: 540px;
+}
+tr {
+	background-color: #fafafa;
+	text-align: center;
+	color: black;
+}
+.links {
+	text-align: center;
+}
+.links input,a {
+	font-size: 16px;
+	text-decoration: none;
+	color: black;
+	border: none;
+	background: transparent;
+}
+.links input:hover {
+	color: blue;
+	cursor: pointer;
+}
+.links a:hover {
+	color: blue;
+}
+</style>
 </head>
 <body>
 	<h3>게시글 입력 화면</h3>
@@ -34,9 +68,12 @@
 				<td><input type="text" name = "email" value="<%=email %>" size="60" disabled></td>
 			</tr>
 		</table>
-		<br><br><input type="submit" value="게시글 등록"> <input type="reset" value="다시 쓰기">
+		<br><br>
+		<div class="links">
+		<input type="submit" value="게시글 등록"> <input type="reset" value="다시 쓰기">
+		<a href="list.jsp">게시글 리스트 보기</a>
+		</div>
 	</form>
-	<a href="list.jsp">게시글 리스트 보기</a>
 	<script>
 		function subalert(form) {
 			if(!form.subject.value) {

@@ -6,28 +6,23 @@
 <meta charset="UTF-8">
 <title>회원 관리 시스템 회원 가입 페이지</title>
 <style>
-table {
-	margin: auto;
-	width: 400px;
-	border: 1px solid gray;
-	text-align: center;
+body {
+	background-color: lightgray;
+	color: #D2D1D5;
+	margin: 0;
 }
-
+table {
+	margin: 60px auto;
+	width: 400px;
+}
+tr {
+	background-color: #fafafa;
+	text-align: center;
+	color: black;
+}
 .td_title {
 	font-weight: bold;
-	font-size: x-large;
-}
-
-button {
-	margin: 10px;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:link, a:visited {
-	color: black;
+	font-size: large;
 }
 </style>
 <!-- <script>	
@@ -55,7 +50,7 @@ function isSame() {
 			</tr>
 			<tr>
 				<td><label for="id">아이디 : </label></td>
-				<td><input type="text" name="id" id="id" required /></td>
+				<td><input type="text" name="id" id="id" placeholder="ID" required /></td>
 			</tr>
 			<tr>
 				<td><label for="pass">비밀번호 : </label></td>
