@@ -14,7 +14,10 @@ body {
 table {
 	margin: 60px auto;
 	width: 400px;
+<<<<<<< HEAD
 	border: none;
+=======
+>>>>>>> db2acdf31192553b4159fa93d6f2056531c6bab2
 }
 tr {
 	background-color: #fafafa;

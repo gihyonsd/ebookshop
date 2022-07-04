@@ -107,11 +107,16 @@ tr {
 	<br>
 	<div class="links">
 	<a href="list.jsp">게시글 리스트 보기</a>
+<<<<<<< HEAD
 	<%if(level >= 3) { %>
 	<a href=delete.jsp?id=<%=id %> onclick="return confirm('삭제 하시겠습니까?');">삭제</a>
 	<% } %>
 	</div>
 	<script>
 	</script>
+=======
+	<a href=delete.jsp?id=<%=id %>>삭제</a>
+	</div>
+>>>>>>> db2acdf31192553b4159fa93d6f2056531c6bab2
 </body>
 </html>
