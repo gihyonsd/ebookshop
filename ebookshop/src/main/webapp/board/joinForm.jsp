@@ -6,46 +6,40 @@
 <meta charset="UTF-8">
 <title>회원 관리 시스템 회원 가입 페이지</title>
 <style>
+body {
+	background-color: lightgray;
+	color: #D2D1D5;
+	margin: 0;
+}
 table {
-	margin: auto;
+	margin: 60px auto;
 	width: 400px;
-	border: 1px solid gray;
+	border: none;
+}
+tr {
+	background-color: #fafafa;
 	text-align: center;
-}
-
-.td_title {
-	font-weight: bold;
-	font-size: x-large;
-}
-
-button {
-	margin: 10px;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:link, a:visited {
 	color: black;
 }
-</style>
-<!-- <script>	
-function isSame() {
-	var pass = document.twin.pass.value;
-	var confirm_pass = document.twin.confirm_pass.value
-	if(document.getElementById('pass').value != '' && document.getElementById('confirm_pass').value != '') {
-		if(document.getElementById('pass').value == document.getElementById('confirm_pass').value) {
-			document.getElementById('same').innerHTML='비밀번호가 일치합니다.';
-			document.getElementById('same').style.color='blue';
-		}
-		else {
-			document.getElementById('same').innerHTML='비밀번호가 일치하지 않습니다.';
-			document.getElementById('same').style.color='red';
-		}
-	}
+.td_title {
+	font-weight: bold;
+	font-size: large;
 }
-</script> -->
+</style>
+<script>	
+function check_pw() {
+    if(document.getElementById('pass').value !='' && document.getElementById('confirm_pass').value!=''){
+        if(document.getElementById('pass').value==document.getElementById('confirm_pass').value){
+            document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
+            document.getElementById('check').style.color='blue';
+        }
+        else{
+            document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
+            document.getElementById('check').style.color='red';
+        }
+    }
+}
+</script>
 </head>
 <body>
 	<form action="joinProcess.jsp" method="post">
@@ -55,19 +49,19 @@ function isSame() {
 			</tr>
 			<tr>
 				<td><label for="id">아이디 : </label></td>
-				<td><input type="text" name="id" id="id" required /></td>
+				<td><input type="text" name="id" id="id" placeholder="ID" required /></td>
 			</tr>
 			<tr>
 				<td><label for="pass">비밀번호 : </label></td>
 				<td><input type="password" name="pass" id="pass"
-					placeholder="Password" onchange="isSame()" required /></td>
+					placeholder="Password" onchange="check_pw()" required /></td>
 			</tr>
-<!-- 			<tr>
+			<tr>
 				<td><label for="pass">비밀번호 확인: </label></td>
 				<td><input type="password" name="confirm_pass"
-					id="confirm_pass" placeholder="비밀번호 확인" onchange="isSame()"
-					required /> &nbsp;&nbsp;<span id="same"></span></td>
-			</tr> -->
+					id="confirm_pass" placeholder="비밀번호 확인" onchange="check_pw()" 
+					required /><br><span id="check"></span></td>
+			</tr>
 			<tr>
 				<td><label for="name">이름 : </label></td>
 				<td><input type="text" name="name" id="name" required /></td>

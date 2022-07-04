@@ -12,7 +12,7 @@
 </head>
 <body>
 	<%
-		String subject, memo, time, id;
+		String subject, memo, id;
 		String name = (String)session.getAttribute("name");
 		String email = (String)session.getAttribute("email");
 		subject = request.getParameter("subject");

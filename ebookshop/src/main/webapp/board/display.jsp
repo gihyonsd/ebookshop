@@ -4,13 +4,49 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
+<% request.setCharacterEncoding("utf-8");
+   int level = (Integer)session.getAttribute("level");
+%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>게시글 표시</title>
+<style>
+body {
+	background-color: lightgray;
+	color: #D2D1D5;
+	margin: 0;
+}
+
+table {
+	margin: 60px auto;
+	width: 500px;
+}
+tr {
+	background-color: #fafafa;
+	text-align: center;
+	color: black;
+}
+
+.noBorder {
+	border: none;
+}
+.links {
+	position: relative;
+	text-align: center;
+	bottom: 50px;
+}
+.links a {
+	font-size: 16px;
+	text-decoration: none;
+	color: black;
+}
+.links a:hover {
+	color: blue;
+}
+</style>
 </head>
 <body>
 <h3>게시글 내용</h3>
@@ -45,31 +81,37 @@
 %>
 	<table border="2">
 	<tr>
-		<td>제목</td>
-		<td><%=subject %></td>
+		<td class="noBorder">제목</td>
+		<td class="noBorder"><%=subject %></td>
 	</tr>
 	<tr>
-		<td>작성자</td>
-		<td><%=name %></td>
+		<td class="noBorder">작성자</td>
+		<td class="noBorder"><%=name %></td>
 	</tr>
 	<tr>
-		<td>내용</td>
-		<td><%=memo %></td>
+		<td class="noBorder">내용</td>
+		<td class="noBorder"><%=memo %></td>
 	</tr>
 	<tr>
 	</tr>
 	<tr>
-		<td>날짜</td>
-		<td><%=time %></td>
+		<td class="noBorder">날짜</td>
+		<td class="noBorder"><%=time %></td>
 	</tr>
 	<tr>
-		<td>이메일</td>
-		<td><%=email %></td>
+		<td class="noBorder">이메일</td>
+		<td class="noBorder"><%=email %></td>
 	</tr>
 	</table>
 	<br>
 	<br>
+	<div class="links">
 	<a href="list.jsp">게시글 리스트 보기</a>
-	<a href=delete.jsp?id=<%=id %>>삭제</a>
+	<%if(level >= 3) { %>
+	<a href=delete.jsp?id=<%=id %> onclick="return confirm('삭제 하시겠습니까?');">삭제</a>
+	<% } %>
+	</div>
+	<script>
+	</script>
 </body>
 </html>
